@@ -23,12 +23,14 @@ def get_data():
     
     urlData = r.content
     rawData = pd.read_csv(io.StringIO(urlData.decode('utf-8')))
+    rawData = rawData[['醫事機構代碼','成人口罩剩餘數','兒童口罩剩餘數','來源資料時間']]
     return rawData
     
 def handle_data():
     old_data = ""
     try:
         old_data = pd.read_csv(r'old.csv')
+       
     except IOError:
         print("File not exist, create new one")
         old_data = get_data()
