@@ -45,7 +45,12 @@ def handle_data():
         
 
 print('running...')
+
+import datetime
+
 while True:
+    now = datetime.datetime.now()
+    # if not (7 < now.hour and now.hour <22):
     if 0:
         print('off line')
     else:
