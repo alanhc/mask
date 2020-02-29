@@ -72,7 +72,7 @@ def main():
             print(now.strftime("%H:%M:%S")+' done.')
         else:
             print("It's my sleeping time.")
-        file.flush()
+        file.flush() 
         sleep(60)
         
 
