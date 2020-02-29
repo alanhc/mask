@@ -4,6 +4,11 @@ from time import sleep
 import io
 import pandas as pd
 import os
+import datetime
+
+file = open('console.log', 'a+', encoding='UTF-8')
+
+
 
 def get_data():
     
@@ -14,15 +19,24 @@ def get_data():
         r = requests.get(url)
     except requests.exceptions.Timeout:
         print('Timeout')
+        file.write(now.strftime("%H:%M:%S")+ ' Timeout\n')
     except requests.exceptions.RequestException as e:
         print('some error happend! ctrl c to shut down',e)
+        file.write(now.strftime("%H:%M:%S")+ ' some error happend! ctrl c to shut down'+ e+"\n")
         get_data()
         return
     tEnd = time.time()
     print(r.status_code,"It cost %f sec" % (tEnd - tStart))
     
     urlData = r.content
-    rawData = pd.read_csv(io.StringIO(urlData.decode('utf-8')))
+    r.encoding = 'utf-8'
+    try:
+        rawData = pd.read_csv(io.StringIO(urlData.decode('utf-8')))
+    except Exception:
+        print('some decode problem, try again.')
+        file.write(now.strftime("%H:%M:%S")+ ' some decode problem, try again.\n')
+        get_data()
+    
     rawData = rawData[['醫事機構代碼','成人口罩剩餘數','兒童口罩剩餘數','來源資料時間']]
     return rawData
     
@@ -44,15 +58,32 @@ def handle_data():
         print('size:',size/(1024*1024),'Mb')
         
 
-print('running...')
 
-import datetime
-
-while True:
+def main():
     now = datetime.datetime.now()
-    # if not (7 < now.hour and now.hour <22):
-    if 0:
-        print('off line')
-    else:
-        handle_data()
-    sleep(60)
+    print(now.strftime("%H:%M:%S"), ' running...')
+    file.write('\n=====================================\n')
+    file.write(now.strftime("%H:%M:%S")+' running..\n')
+    while True:
+        now = datetime.datetime.now()
+        if (7 < now.hour and now.hour <22):
+            print(' geting data...')
+            handle_data()
+            print(now.strftime("%H:%M:%S")+' done.')
+        else:
+            print("It's my sleeping time.")
+        file.flush()
+        sleep(60)
+        
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        print('Interrupted')
+        now = datetime.datetime.now()
+        file.write(now.strftime("%H:%M:%S")+' Interrupted..\n')
+        file.close()
+        
+    
