@@ -1,4 +1,4 @@
 .*
 !/.gitignore
 old.csv
-*old.csv
+_old.csv
