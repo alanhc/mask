@@ -20,9 +20,11 @@ def get_data():
     except requests.exceptions.Timeout:
         print('Timeout')
         file.write(now.strftime("%H:%M:%S")+ ' Timeout\n')
-    except Exception as e:
-        print('some error happend! ctrl c to shut down',e)
-        file.write(now.strftime("%H:%M:%S")+ ' some error happend! ctrl c to shut down'+ e+"\n")
+        file.flush() 
+    except Exception :
+        print('some error happend! ctrl c to shut down')
+        file.write(now.strftime("%H:%M:%S")+ ' some error happend! ctrl c to shut down'+"\n")
+        file.flush() 
         get_data()
         return
     tEnd = time.time()
@@ -35,6 +37,7 @@ def get_data():
     except Exception:
         print('some decode problem, try again.')
         file.write(now.strftime("%H:%M:%S")+ ' some decode problem, try again.\n')
+        file.flush() 
         get_data()
     
     rawData = rawData[['醫事機構代碼','成人口罩剩餘數','兒童口罩剩餘數','來源資料時間']]
