@@ -42,7 +42,7 @@ def get_data():
     
 def handle_data():
     old_data = ""
-     now = datetime.datetime.now()
+    now = datetime.datetime.now()
     try:
         old_data = pd.read_csv(r'old.csv')
        
