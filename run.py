@@ -11,7 +11,7 @@ file = open('console.log', 'a+', encoding='UTF-8')
 
 
 def get_data():
-    
+    now = datetime.datetime.now()
     url = 'https://data.nhi.gov.tw/resource/mask/maskdata.csv'
     
     tStart = time.time()
@@ -20,7 +20,7 @@ def get_data():
     except requests.exceptions.Timeout:
         print('Timeout')
         file.write(now.strftime("%H:%M:%S")+ ' Timeout\n')
-    except requests.exceptions.RequestException as e:
+    except Exception as e:
         print('some error happend! ctrl c to shut down',e)
         file.write(now.strftime("%H:%M:%S")+ ' some error happend! ctrl c to shut down'+ e+"\n")
         get_data()
@@ -42,6 +42,7 @@ def get_data():
     
 def handle_data():
     old_data = ""
+     now = datetime.datetime.now()
     try:
         old_data = pd.read_csv(r'old.csv')
        
