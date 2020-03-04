@@ -21,9 +21,9 @@ def get_data():
         print('Timeout')
         file.write(now.strftime("%H:%M:%S")+ ' Timeout\n')
         file.flush() 
-    except Exception :
-        print('some error happend! ctrl c to shut down')
-        file.write(now.strftime("%H:%M:%S")+ ' some error happend! ctrl c to shut down'+"\n")
+    except Exception as e:
+        print('some error happend! ctrl c to shut down',e)
+        file.write(now.strftime("%H:%M:%S")+ ' some error happend! ctrl c to shut down'+"\n"+str(e))
         file.flush() 
         get_data()
         return
@@ -32,6 +32,7 @@ def get_data():
     
     urlData = r.content
     r.encoding = 'utf-8'
+    rawData=""
     try:
         rawData = pd.read_csv(io.StringIO(urlData.decode('utf-8')))
     except Exception:
@@ -72,7 +73,14 @@ def main():
         now = datetime.datetime.now()
         if (7 < now.hour and now.hour <22):
             print(' geting data...')
-            handle_data()
+            try :
+                handle_data()
+            except Exception as e:
+                print('some decode problem, try again.',e)
+                file.write(now.strftime("%H:%M:%S")+ ' some decode problem, try again.\n'+str(e)+"\n")
+                file.flush() 
+                main()
+                return
             print(now.strftime("%H:%M:%S")+' done.')
         else:
             print("It's my sleeping time.")

@@ -49,3 +49,31 @@
 
 =====================================
 16:26:50 running..
+18:12:24 some error happend! ctrl c to shut down
+19:05:52 Interrupted..
+
+=====================================
+19:06:47 running..
+19:07:35 Interrupted..
+
+=====================================
+19:07:39 running..
+20:30:54 some error happend! ctrl c to shut down
+('Connection broken: OSError("(54, \'ECONNRESET\')")', OSError("(54, 'ECONNRESET')"))23:35:59 Interrupted..
+
+=====================================
+01:05:15 running..
+08:59:15 some error happend! ctrl c to shut down
+HTTPSConnectionPool(host='data.nhi.gov.tw', port=443): Max retries exceeded with url: /resource/mask/maskdata.csv (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x116a96150>: Failed to establish a new connection: [Errno 60] Operation timed out'))08:31:25 some decode problem, try again.
+
+=====================================
+10:09:15 running..
+11:10:25 some decode problem, try again.
+
+=====================================
+14:29:51 running..
+17:49:42 Interrupted..
+
+=====================================
+17:49:47 running..
+22:37:17 Interrupted..
