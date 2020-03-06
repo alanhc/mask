@@ -5,6 +5,10 @@ import io
 import pandas as pd
 import os
 import datetime
+import pandas as pd
+from sqlalchemy import create_engine
+from secrets import db_user, db_pass
+
 
 file = open('console.log', 'a+', encoding='UTF-8')
 now = datetime.datetime.now()
@@ -63,16 +67,27 @@ def handle_data():
         size = os.path.getsize(filename)
         print('size:',size/(1024*1024),'Mb')
         
-
-
+def save_to_database():
+    
+    tStart = time.time()
+    
+    data = pd.read_csv('03-06.csv')
+    data.columns = ['id','adult','child','time']
+    engine = create_engine('mysql+pymysql://'+db_user+':'+db_pass+'@localhost:3306/db_mask')
+    data.to_sql('mask', engine,if_exists='append')
+    tEnd = time.time()
+    print("Write to MySQL successfully!It cost %f sec"% (tEnd - tStart))
+saved = False
 def main():
     now = datetime.datetime.now()
     print(now.strftime("%H:%M:%S"), ' running...')
     file.write('\n=====================================\n')
     file.write(now.strftime("%H:%M:%S")+' running..\n')
+    
     while True:
         now = datetime.datetime.now()
         if (7 < now.hour and now.hour <22):
+            saved=False
             print(' geting data...')
             try :
                 handle_data()
@@ -84,11 +99,15 @@ def main():
                 return
             print(now.strftime("%H:%M:%S")+' done.')
         else:
+            if (not saved):
+                save_to_database()
+                saved = true
             print("It's my sleeping time.")
         file.flush() 
+        
         sleep(60)
         
-
+        
 
 if __name__ == '__main__':
     try:
