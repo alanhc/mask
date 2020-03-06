@@ -7,8 +7,8 @@ import os
 import datetime
 
 file = open('console.log', 'a+', encoding='UTF-8')
-
-
+now = datetime.datetime.now()
+filename = str(now.strftime("%Y-%m-%d"))+'.csv'
 
 def get_data():
     now = datetime.datetime.now()
@@ -45,21 +45,22 @@ def get_data():
     return rawData
     
 def handle_data():
+    
     old_data = ""
     now = datetime.datetime.now()
     try:
-        old_data = pd.read_csv(r'old.csv')
+        old_data = pd.read_csv(filename)
        
     except IOError:
         print("File not exist, create new one")
         old_data = get_data()
-        old_data.to_csv(r'old.csv', index=False)
+        old_data.to_csv(filename, index=False)
         return
     else:
         new_data = get_data()
         combin_data = pd.concat([new_data,old_data], ignore_index=True)
-        combin_data.to_csv(r'old.csv', index=False)
-        size = os.path.getsize('old.csv')
+        combin_data.to_csv(filename, index=False)
+        size = os.path.getsize(filename)
         print('size:',size/(1024*1024),'Mb')
         
 
