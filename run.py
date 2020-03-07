@@ -71,14 +71,17 @@ def save_to_database():
     
     tStart = time.time()
     
-    data = pd.read_csv('03-06.csv')
+    data = pd.read_csv(filename)
     data.columns = ['id','adult','child','time']
     engine = create_engine('mysql+pymysql://'+db_user+':'+db_pass+'@localhost:3306/db_mask')
     data.to_sql('mask', engine,if_exists='append')
     tEnd = time.time()
     print("Write to MySQL successfully!It cost %f sec"% (tEnd - tStart))
-saved = False
+
+
 def main():
+    saved = False
+
     now = datetime.datetime.now()
     print(now.strftime("%H:%M:%S"), ' running...')
     file.write('\n=====================================\n')
@@ -101,7 +104,7 @@ def main():
         else:
             if (not saved):
                 save_to_database()
-                saved = true
+                saved = True
             print("It's my sleeping time.")
         file.flush() 
         
