@@ -83,6 +83,7 @@ def main():
     saved = False
 
     now = datetime.datetime.now()
+    filename = str(now.strftime("%Y-%m-%d"))+'.csv'
     print(now.strftime("%H:%M:%S"), ' running...')
     file.write('\n=====================================\n')
     file.write(now.strftime("%H:%M:%S")+' running..\n')
