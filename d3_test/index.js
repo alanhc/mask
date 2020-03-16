@@ -1,11 +1,15 @@
 let data;
+let table;
 function preload()
 {
     data = loadJSON('search.json');
+    table = loadTable('result.csv', 'csv', 'header');
 }
-function setup()
+async function setup()
 {
-    main()
+    await getLocation();
+    setMap();
+    console.log(sessionStorage.myLatitude, sessionStorage.myLongitude)  
     
 }
 function draw()
@@ -13,11 +17,4 @@ function draw()
 
 }
 
-async function main()
-{  
-    await getLocation();
-    await setMap();
-    
-    console.log(sessionStorage.myLatitude, sessionStorage.myLongitude)
-    
-}
+
