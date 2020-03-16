@@ -81,3 +81,95 @@ string indices must be integers
 
 =====================================
 16:51:30 running..
+10:05:45 Interrupted..
+
+=====================================
+10:07:17 running..
+
+=====================================
+00:56:25 running..
+
+=====================================
+00:58:38 running..
+
+=====================================
+01:00:34 running..
+
+=====================================
+01:00:36 running..
+
+=====================================
+01:00:43 running..
+08:53:42 some decode problem, try again.
+08:53:42 some decode problem, try again.
+string indices must be integers
+
+=====================================
+08:53:43 running..
+09:26:42 some decode problem, try again.
+09:26:41 some decode problem, try again.
+string indices must be integers
+
+=====================================
+09:26:43 running..
+11:53:12 some decode problem, try again.
+11:53:11 some decode problem, try again.
+string indices must be integers
+
+=====================================
+11:53:12 running..
+12:38:42 some error happend! ctrl c to shut down
+('Connection broken: OSError("(54, \'ECONNRESET\')")', OSError("(54, 'ECONNRESET')"))09:51:48 Interrupted..
+
+=====================================
+09:52:01 running..
+10:00:19 Interrupted..
+
+=====================================
+10:00:26 running..
+10:00:31 Interrupted..
+
+=====================================
+10:01:28 running..
+10:03:40 Interrupted..
+
+=====================================
+10:03:44 running..
+10:53:35 some error happend! ctrl c to shut down
+HTTPSConnectionPool(host='data.nhi.gov.tw', port=443): Max retries exceeded with url: /resource/mask/maskdata.csv (Caused by SSLError(SSLError("bad handshake: SysCallError(60, 'ETIMEDOUT')")))12:25:27 Interrupted..
+
+=====================================
+12:25:34 running..
+13:28:29 some decode problem, try again.
+13:28:28 some decode problem, try again.
+string indices must be integers
+
+=====================================
+13:31:00 running..
+14:03:16 some decode problem, try again.
+14:03:16 some decode problem, try again.
+string indices must be integers
+
+=====================================
+14:06:41 running..
+19:27:27 some error happend! ctrl c to shut down
+('Connection broken: OSError("(54, \'ECONNRESET\')")', OSError("(54, 'ECONNRESET')"))08:36:29 Interrupted..
+
+=====================================
+08:36:53 running..
+19:31:57 Interrupted..
+
+=====================================
+19:32:01 running..
+19:32:28 Interrupted..
+
+=====================================
+19:32:43 running..
+19:37:35 Interrupted..
+
+=====================================
+19:37:50 running..
+22:32:19 Interrupted..
+
+=====================================
+22:51:05 running..
