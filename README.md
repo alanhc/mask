@@ -1,5 +1,6 @@
 mask
-=====，
+=====
+
 此專案靈感來自GDG Howard的[口罩地圖](https://mask.goodideas-studio.com/)，利用課堂所學去爬取政府開放資料、Pandas整理資料、MySQL儲存及利用leafletjs視覺化地圖，每日早上8.到晚上10.會進行爬取資料。檔名存成當日日期.csv。在不爬取資料時會將資料存進MySQL資料庫。
 ## 截圖
 ![](img/1.png)
