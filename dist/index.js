@@ -1,13 +1,14 @@
 let data;
 let table;
-function preload()
+async function preload()
 {
     data = loadJSON('search.json');
     table = loadTable('result.csv', 'csv', 'header');
+    await getLocation();
 }
 async function setup()
 {
-    await getLocation();
+    
     setMap();
     console.log(sessionStorage.myLatitude, sessionStorage.myLongitude)  
     
