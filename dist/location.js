@@ -17,30 +17,8 @@ function getLocation(callback) {
         x.innerHTML = "Geolocation is not supported by this browser.";
     }
 }
-
-function setMap()
+function update_map()
 {
-    
-    // 設定經緯度座標
-   
-    var map = L.map('mapid').setView([sessionStorage.myLatitude,sessionStorage.myLongitude], 
-        15);
-    // 設定圖資來源
-    //var osmUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-    //var osm = new L.TileLayer(osmUrl, { minZoom: 8, maxZoom: 16 });
-    //map.addLayer(osm);
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 20,
-        minZoom:5,
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1,
-        accessToken: 'pk.eyJ1IjoiYWxhbmhjIiwiYSI6ImNrN2lncHlqdTBpZHMzbHBoazNsNmwzZW4ifQ.5KGKQCEMSx5FYHzo6Fy87Q'
-    }).addTo(map);
-
-    
-    
     let count=0;
     //table.getString(i,j);
     let d=3;
@@ -53,7 +31,7 @@ function setMap()
     console.log("left ",ly,lx,"\n");
     console.log("right ",ry,rx,"\n");
     
-   
+    
     //醫事機構代碼 醫事機構名稱 TGOS X TGOS Y 成人口罩剩餘數 兒童口罩剩餘數
     //0          1          2      3      4            5
     for (let i=0; i<table.getRowCount(); i++) {
@@ -88,6 +66,31 @@ function setMap()
             if (count>500) break;
         }
     }
+}
+function setMap()
+{
+    
+    // 設定經緯度座標
+   
+    var map = L.map('mapid').setView([sessionStorage.myLatitude,sessionStorage.myLongitude], 
+        15);
+    // 設定圖資來源
+    //var osmUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
+    //var osm = new L.TileLayer(osmUrl, { minZoom: 8, maxZoom: 16 });
+    //map.addLayer(osm);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 20,
+        minZoom:5,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoiYWxhbmhjIiwiYSI6ImNrN2lncHlqdTBpZHMzbHBoazNsNmwzZW4ifQ.5KGKQCEMSx5FYHzo6Fy87Q'
+    }).addTo(map);
+
+    
+    update_map();
+    
     
     
 

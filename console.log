@@ -296,3 +296,5 @@ module 'pandas' has no attribute 'Dataframe'
 
 ================== 2020-03-22 ===================
 13:14:20 running..
+19:07:28 some error happend! ctrl c to shut down
+('Connection broken: OSError("(54, \'ECONNRESET\')")', OSError("(54, 'ECONNRESET')"))
