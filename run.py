@@ -61,11 +61,14 @@ def handle_data():
         print("File not exist, create new one")
         old_data = get_data()
         old_data.to_csv(filename, index=False)
+        #old_data.to_csv('dist/result.csv', index=False)
+        
         return
     else:
         new_data = get_data()
         combin_data = pd.concat([new_data,old_data], ignore_index=True)
         combin_data.to_csv(filename, index=False)
+        #combin_data.to_csv('dist/result.csv', index=False)
         size = os.path.getsize(filename)
         #print('size:',size/(1024*1024),'Mb')
         

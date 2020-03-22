@@ -1,10 +1,12 @@
 let data;
 let table;
-async function preload()
+function preload()
 {
     data = loadJSON('search.json');
     table = loadTable('result.csv', 'csv', 'header');
-    await getLocation();
+    
+    getLocation();
+    
 }
 async function setup()
 {
