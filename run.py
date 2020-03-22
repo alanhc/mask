@@ -46,8 +46,19 @@ def get_data():
         get_data()
     
     rawData = rawData[['醫事機構代碼','成人口罩剩餘數','兒童口罩剩餘數','來源資料時間']]
+    to_result_table(rawData)
     return rawData
     
+def to_result_table(data):
+    t1 = pd.read_csv('data.csv', index_col=['醫事機構代碼'])
+    t1 = t1[['醫事機構名稱','TGOS X', 'TGOS Y']]
+    t2 = data
+    result = pd.concat([t1, t2], axis=1, join='inner')
+    result.dropna(axis=0)
+    print('data shape:',result.shape)
+    result.to_csv('dist/result.csv')
+
+
 def handle_data():
     
     old_data = ""
@@ -66,6 +77,7 @@ def handle_data():
         new_data = get_data()
         combin_data = pd.concat([new_data,old_data], ignore_index=True)
         combin_data.to_csv(filename, index=False)
+        
         size = os.path.getsize(filename)
         #print('size:',size/(1024*1024),'Mb')
         
