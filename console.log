@@ -183,3 +183,112 @@ string indices must be integers
 
 =====================================
 11:35:36 running..
+12:04:12 Interrupted..
+
+=====================================
+12:04:41 running..
+12:04:41 some decode problem, try again.
+[Errno 2] File data.csv does not exist: 'data.csv'
+
+=====================================
+12:05:58 running..
+12:05:58 some decode problem, try again.
+[Errno 2] File data.csv does not exist: 'data.csv'
+
+=====================================
+12:07:14 running..
+12:07:14 some decode problem, try again.
+[Errno 2] File data.csv does not exist: 'data.csv'
+
+=====================================
+12:08:32 running..
+12:09:18 Interrupted..
+
+=====================================
+12:09:36 running..
+12:11:24 Interrupted..
+
+=====================================
+12:12:55 running..
+12:17:13 Interrupted..
+
+=====================================
+12:17:28 running..
+12:17:59 Interrupted..
+
+=====================================
+12:18:06 running..
+12:18:06 some decode problem, try again.
+"['醫事機構代碼'] not in index"
+
+=====================================
+12:19:23 running..
+12:19:36 Interrupted..
+
+=====================================
+12:22:01 running..
+12:23:52 Interrupted..
+
+=====================================
+12:24:31 running..
+12:25:24 Interrupted..
+
+=====================================
+12:25:58 running..
+12:25:58 some decode problem, try again.
+name 'result' is not defined
+
+=====================================
+12:27:15 running..
+12:27:26 Interrupted..
+
+=====================================
+12:27:51 running..
+12:27:51 some decode problem, try again.
+name 'result' is not defined
+
+=====================================
+12:29:08 running..
+12:29:33 Interrupted..
+
+=====================================
+12:29:57 running..
+12:30:33 Interrupted..
+
+=====================================
+12:30:42 running..
+12:32:14 Interrupted..
+
+=====================================
+12:32:42 running..
+12:32:42 some decode problem, try again.
+module 'pandas' has no attribute 'Dataframe'
+
+=====================================
+12:33:58 running..
+12:34:04 Interrupted..
+
+=====================================
+12:35:01 running..
+12:37:07 Interrupted..
+
+=====================================
+12:37:19 running..
+12:54:48 Interrupted..
+
+=====================================
+12:55:13 running..
+12:57:44 Interrupted..
+
+=====================================
+12:58:01 running..
+12:58:01 Interrupted..
+
+
+
+==================2020-03-22===================
+13:00:35 running..
+13:01:10 Interrupted..
+
+================== 2020-03-22 ===================
+13:01:27 running..
