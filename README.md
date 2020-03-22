@@ -7,7 +7,7 @@ Mask Map visualization
 ## How to run
 1. clone此專案:```git clone https://github.com/alanhc/mask.git```
 2. 取得所需套件```pip install -r requirements.txt```
-3. 建立好MySQL資料庫的db_mask資料庫及mask資料表 
+3. 建立好MySQL資料庫的db_mask資料庫及mask資料表
 
 server端
 * 爬取及整理資料
